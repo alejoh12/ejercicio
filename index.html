@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Clase 05</h1>
+    </HEAder>
+    <main>
+        <section>
+            <h2>Formularios</h2>
+            <p>
+                Los formularios son elementos que permiten recopilar información del usuario del sitio web.
+                <br>
+                Permite que el usuario ingrese un dato que después será utilizado por un Lenguaje de Programación.
+                <br>
+                Codigo HTML -> Permite indicar qué datos recopilar.
+                <br>
+                Código del Lenguaje de Programación -> Permite indicar qué hacer con esos datos recopilados.
+                <br>
+                PHP es un lenguaje de programación que se comunica con los servidores. Para usar PHP es necesario tener un servidor.
+            </p>
+            <!-- Etiqueta form => Permite crear un formulario
+                atributo action => Tiene la ruta al archivo php que tiene el código que va a utilizar los datos del formulario.
+                atributo method => permite declarar cómo van a viajar los datos
+                    => GET - Los datos del formulario viajan visibles en la barra de navegación. Solo se pueden mandar hasta 250 caracteres. Sólo se usa para barras de búsqueda
+                    => POST - Los datos no viajan visibles en la barra de navegación. Sin límites de envío de datos. Para todo lo que no sea una barra de búsqueda
+                Para enviar archivos a Lenguajes de Programación que trabajan con servidores (back-end) es necesario agregar atributo enctype="multipart/form-data".
+            -->
+            <form action="php/codigo.php" method="post" enctype="multipart/form-data">
+                <!-- 
+                    Input => Elemento que permite que el usuario ingrese datos
+                    Atributo de etiqueta === Modificador de etiqueta
+                    Label => Permite dar contexto a un input
+                        -> atributo for
+                            => Vincula la etiqueta label con el input cuyo atributo ID coincida con el for
+                            => Accesibilidad
+                -->
+                <label for="nombre">Nombre:</label>
+                <input
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+                    class="cambiarTipo"
+                    pattern="[A-z ]{2,50}"
+                    title="Sólo letras"
+                >
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" class="cambiarTipo">
+
+                <!-- 
+                    Validación del Dato (concepto de programación)
+                        => Trabajo que se realiza para asegurarse que el programa tiene el dato que necesita
+                        => atributo type -> Valida el tipo de dato que el usuario debe ingresar
+                        => atributo patter -> permite ingresar una expresión regular para validar los datos del campo
+                            -> RegExp (Expresión Regular) - Es un código (cadena de caracteres) que el navegador utiliza para comparar con los datos ingresados. Solo pueden comprobar formato.
+                                -> regexr.com (machete de la profe)
+                                => [A-z ]{2,50} - Solo se puede escribir letras minúsculas y mayúsculas. Puede haber espacios. No se puede poner menos de 2 caracteres y no más de 50
+                        => atributo required -> Impide el envío del fomulario si no se completa el campo
+                 -->
+                <h3>Elementos de Selección</h3>
+                <p>
+                    En los elementos del selección el usuario responde a la pregunta: ¿Querés mandar este dato?
+                    <br>
+                    Si selecciona, responde que si.
+                    <br>
+                    Si no selecciona, responde que no.
+                    <br>
+                    El atributo se usa para indicar qué dato se manda cuando el usuario responde que si.
+                </p>
+                <h4>input:checkbox</h4>
+                <p>Elementos de selección multiple. Permiten seleccionar uno, todos o ninguno.</p>
+                <label for="tortuga">Tortuga:</label>
+                <input type="checkbox" name="animales" id="tortuga" value="tortuga" >
+                <label for="perro">Perro:</label>
+                <input type="checkbox" name="animales" id="perro" value="perro" >
+                <label for="gato">Gato:</label>
+                <input type="checkbox" name="animales" id="gato" value="gato" >
+
+                <!-- 
+                    [animales]
+                        => [gato]
+                        => [gato, perro]
+                        => [gato, perro, tortuga]
+                        => []
+                 -->
+
+                <h4>input:radio</h4>
+                <p>Elementos de selección simple. Permite solo la seleccion de uno de los elementos.</p>
+                <label for="nueva">Nueva Web:</label>
+                <input 
+                    type="radio" 
+                    name="servicios" 
+                    id="nueva"
+                    checked
+                >
+                <label for="modificar">Modificar Web:</label>
+                <input 
+                    type="radio" 
+                    name="servicio" 
+                    id="modificar"
+                >
+
+                <!-- 
+                    [servicio - sólo puede tener uno]
+                        => [nueva]
+                        => [modificar]
+                        => []
+                 -->
+
+                <h4>select</h4>
+                <select name="paises" id="paises">
+                    <option value="argentina">Argentina</option>
+                    <option value="brasil">Brasil</option>
+                    <option value="chile">Chile</option>
+                </select>
+
+                <h3>Agregar Archivos</h3>
+                <label for="archivo">Agregar Archivo:</label>
+                <input type="submit" value="Enviar" class="cambiarTipo" multiple >
+                <label for="comentarios">Dejanos tu consulta:</label>
+                <textarea name="comentarios" id="comentarios" cols="30" rows="10" class="cambiarTipo" maxlength="250"></textarea>
+
+                <!-- <button type = "submit">Enviar</button> -->
+                <input type="submit" value="Enviar" class="cambiarTipo">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <span>&copy; Copyright - Nosotros</span>
+    </footer>
+</body>
+</html>
